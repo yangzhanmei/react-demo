@@ -11,6 +11,16 @@
             color: #d9d9d9;
             text-decoration: line-through;
         }
+
+        .header {
+            color: darksalmon;
+            font-size: 50px;
+        }
+
+        .new-todo {
+            height: 50px;
+            width: 250px;
+        }
     </style>
 </head>
 <body class="lean-bar">
@@ -133,7 +143,7 @@
                                 <Header title={todolist.name}/>
                                 <div className="add-taskItem-box">
                                     <input ref="addTask" className="new-todo"
-                                           placeholder="What needs to be done?"
+                                           placeholder="What do you want to do?"
                                            defaultValue={this.state.addTaskTitle}
                                            onChange={this.changeHandel}
                                            onKeyPress={this.addTaskHandel}
@@ -234,11 +244,15 @@
                         <strong> {this.props.lefted} </strong> <span> </span> <span> items </span> <span> left </span>
                     </span>
                 <div className="filters">
-                    <div><a href="#" className={type[0]} onClick={this.props.switchType.bind(null, 'all')}> All </a></div>
-                    <div><a href="#active" className={type[1]} onClick={this.props.switchType.bind(null, 'active')}>
-                        Active </a></div>
-                    <div><a href="#completed" className={type[2]}
-                           onClick={this.props.switchType.bind(null, 'completed')}> Completed </a></div>
+                    <br/>
+                    <a href="#" className={type[0]} onClick={this.props.switchType.bind(null, 'all')}>
+                        All </a>&nbsp;&nbsp;&nbsp;<a href="#active" className={type[1]}
+                                                     onClick={this.props.switchType.bind(null, 'active')}>
+                    Active </a>&nbsp;&nbsp;&nbsp;<a href="#completed" className={type[2]}
+                                                    onClick={this.props.switchType.bind(null, 'completed')}>
+                    Completed </a>
+                    <br/>
+                    <br/>
                 </div>
                 <button className="clear-completed" onClick={this.props.clearCom}>
                     Clear completed
